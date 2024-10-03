@@ -1,67 +1,69 @@
-// Función para verificar si el nombre contiene números o símbolos
-function nombreNumerosOSimbolos(texto) {
-    return /[^a-zA-Z\s]/.test(texto);
+// Gorras disponibles
+let gorras = [
+  { id: 1, nombre: 'Gorra Ferrari', precio: 50 },
+  { id: 2, nombre: 'Gorra Mercedes', precio: 60 },
+  { id: 3, nombre: 'Gorra Red Bull', precio: 55 }
+];
+
+// Carrito de compras
+let carrito = [];
+
+// Agregar gorras al carrito
+function agregarAlCarrito(id, cantidad) { 
+  let producto = gorras.find(gorra => gorra.id === id);
+  if (producto) {
+      carrito.push({ producto, cantidad });
+      alert(`${cantidad} unidades de ${producto.nombre} se agregaron al carrito.`);
+  } else {
+      alert("Gorra no encontrada");
+  }
 }
 
-// Función Inicio de Aplicación
-function iniciarAplicacion() {
-
-    let nombreIngresado = prompt("Ingrese su nombre aquí por favor:");
-
-    while (nombreIngresado === "" || nombreIngresado === null || nombreNumerosOSimbolos(nombreIngresado)) {
-        if (nombreIngresado === null) {
-            alert("ERROR! Para continuar, ingrese un nombre válido sin números ni símbolos.");
-        } else if (nombreIngresado === "") {
-            alert("Le pedimos por favor que ingrese su nombre para continuar.");
-        } else {
-            alert("ERROR! El nombre no puede contener números ni símbolos.");
-        }
-        nombreIngresado = prompt("Ingrese su nombre nuevamente por favor:");
-    }
-
-    alert("¡Hola, " + nombreIngresado + "! ¡Bienvenido a la Aplicación de Clima!");
-    console.log("Nombre ingresado:", nombreIngresado);
-
-// Llamada a la función que muestra el catálogo de ciudades
-    mostrarCatalogoCiudades();
+// Calculo total de la compra
+function calcularTotal() {
+  let total = 0;
+  carrito.forEach(item => {
+      total += item.producto.precio * item.cantidad;
+  });
+  return total;
 }
 
-// Función que muestra el "catálogo" de ciudades para ver el clima
-function mostrarCatalogoCiudades() {
-    let opcion;
-
-    do {
-        opcion = prompt(`Selecciona una ciudad para ver el clima:
-        1. Buenos Aires
-        2. Madrid
-        3. Nueva York
-        4. Tokio
-        0. Salir`);
-
-        opcion = parseInt(opcion);
-        switch (opcion) {
-            case 1:
-                alert("Clima en Buenos Aires: Soleado, 25°C.");
-                break;
-            case 2:
-                alert("Clima en Madrid: Nublado, 18°C.");
-                break;
-            case 3:
-                alert("Clima en Nueva York: Lluvia, 12°C.");
-                break;
-            case 4:
-                alert("Clima en Tokio: Despejado, 30°C.");
-                break;
-            case 0:
-                alert("Gracias por usar la aplicación, ¡hasta pronto!");
-                break;
-            default:
-                alert("Opción no válida, por favor intente nuevamente.");
-        }
-    } while (isNaN(opcion) || opcion < 0 || opcion > 4);
-
-    console.log("Opción seleccionada:", opcion);
+// Contenido del carrito
+function mostrarCarrito() {
+  console.log("Tu carrito:");
+  carrito.forEach(item => {
+      console.log(`${item.cantidad} x ${item.producto.nombre} - Precio: $${item.producto.precio}`);
+  });
 }
 
-// Iniciar la aplicación al hacer clic en el botón
-document.getElementById("startBtn").addEventListener("click", iniciarAplicacion);
+// Flujo de compra
+function iniciarCompra() {
+  let continuarComprando = true;
+
+  while (continuarComprando) {
+      let idGorra = parseInt(prompt("Elige una gorra: 1. Ferrari, 2. Mercedes, 3. Red Bull"));
+      let cantidadGorras = parseInt(prompt("¿Cuántas unidades quieres?"));
+      agregarAlCarrito(idGorra, cantidadGorras);
+      
+      let respuesta = parseInt(prompt("¿Quieres comprar más gorras? (1 = Sí, 2 = No)"));
+      
+      
+      while (respuesta !== 1 && respuesta !== 2) {
+          respuesta = parseInt(prompt("Respuesta no válida. ¿Quieres comprar más gorras? (1 = Sí, 2 = No)"));
+      }
+      if (respuesta === 2) {
+          continuarComprando = false;
+      }
+  }
+
+  // Finalizar compra y mostrar total
+  let totalCompra = calcularTotal();
+  mostrarCarrito();
+  console.log(`El total de tu compra es: $${totalCompra}`);
+  alert(`El total de tu compra es: $${totalCompra}`);
+}
+
+
+window.onload = function() {
+  iniciarCompra();
+};
