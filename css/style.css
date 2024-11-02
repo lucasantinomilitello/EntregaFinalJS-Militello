@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+h2 {
+    font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+  }
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #FF1801 !important; 
+    padding: 0;
+    margin-bottom: 0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .navbar-nav {
+    gap: 20px; 
+    justify-content: center;
+}
+
+.navbar .nav-link {
+    line-height: 50px;
+}
+
+.navbar .nav-link span {
+    color: black !important;
+    font-size: 1.5rem !important; 
+    font-weight: bold;
+}
+
+.nav-foto {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.logo {
+    width: 150px;
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/*Introducción*/
+#intro-section {
+    margin-top: -50px;
+    padding-bottom: 50px;
+    border-radius: 19px;
+}
+
+.intro-image {
+    width: 100%;
+    max-width: 370px;
+    margin-bottom: -50px; 
+}
+
+.titulo-texto {
+    color: black;
+    font-weight: bold;
+    margin-top: 5px; 
+    font-size: 4rem; 
+    text-decoration: underline;
+}
+
+#intro-section p {
+    color: #4d0000;
+    font-size: 1.25rem;
+}
+/*Fin de Introducción*/
+
+
+/*Tienda*/
+.titulo-img {
+    width: 100%;
+    max-width: 180px;
+    display: block;
+    margin: 0 0 15px 0;
+}
+
+.card-img-top {
+    max-height: 250px;
+    object-fit: contain;
+    margin-bottom: 0;
+}
+
+
+.card-redbull {
+    min-height: 587px;
+}
+
+.logo-redbull {
+    max-width: 150px;
+    display: block;
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+
+.price-list-redbull {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.price-redbull {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
+
+
+.card-title-img {
+    max-width: 150px;
+    display: block;
+    margin: 10px 0;
+}
+
+
+.price-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+
+.price-list li {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+.btn-add-to-cart {
+    background-color: #FF1801 !important;
+    color: black !important;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    margin: 15px auto 0 auto;
+}
+/*Fin de Tienda*/
+
+/*Contacto*/
+.contacto-titulo {
+    background-color: #FF1801;
+    border: 2px solid black;
+    padding: 20px; 
+    text-align: center; 
+}
+
+.contact-image {
+    width: 100px; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+}
+
+.boton-contacto {
+    color: black !important;
+    background-color: #FF1801 !important;
+    border-color: black !important;
+    font-weight: 700;
+}
+
+.container.mt-5 {
+    margin-bottom: 30px; 
+}
+/*Fin Contacto*/
+
+/*Footer*/
+footer {
+    background-color: rgba(216, 22, 22, 0.295);
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0;
+}
+/*Fin Footer*/
